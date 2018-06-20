@@ -1,0 +1,5 @@
+<!--index.wxml-->
+<view class="container">
+  <navigator url="/pages/popupDemo/popupDemo" class="navigator">popup 组件</navigator>
+  <navigator url="/pages/textshowallDemo/textshowallDemo" class="navigator">'查看全部'-'收起' 组件</navigator>
+</view>

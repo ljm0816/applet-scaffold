@@ -1,0 +1,30 @@
+/* pages/houseNews/houseNews.wxss */
+.house-news-warp .news-item {
+  background: #ffffff;
+  padding: 20rpx 40rpx;
+  font-size: 28rpx;
+  margin-top: 12rpx;
+  line-height: 1.5;
+}
+.house-news-warp .news-item .news-time {
+  font-size: 28rpx;
+  color: #999999;
+}
+.house-news-warp .news-item .conent {
+  line-height: 40rpx;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break:break-all;
+}
+
+.shouqi{
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical; 
+}
+.conent-panel{
+  max-height: 120rpx;
+  overflow: hidden;
+}

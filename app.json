@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/popupDemo/popupDemo",
+    "pages/textshowallDemo/textshowallDemo",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "广佛新房",
+    "navigationBarTextStyle": "black"
+  }
+}

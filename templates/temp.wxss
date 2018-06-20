@@ -1,0 +1,38 @@
+/* template/temp.wxss */
+
+.tit-panel {
+  display: flex;
+  background: #ffffff;
+  justify-content: center;
+  align-items: center;
+  padding: 30rpx 40rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.tit-panel .tit {
+  flex: 1;
+  font-size: 32rpx;
+}
+.tit-panel .tit .bor {
+  display: inline-block;
+  border-radius: 40rpx;
+  height: 40rpx;
+  width: 8rpx;
+  background: #ff6600;
+  vertical-align: middle;
+  margin-right: 14rpx;
+}
+.tit-panel .more {
+  width: 60rpx;
+  text-align: right;
+  display: inline-block;
+}
+.tit-panel .more i {
+  color: #6c6c6c !important;
+  font-size: 32rpx;
+}
+
+.icon-morevert:after{
+  font-family: "iconfont";
+  content: "\e615";
+  font-size: 46rpx !important;
+}

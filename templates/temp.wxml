@@ -1,0 +1,11 @@
+<!--template/temp.wxml-->
+<template name="tit">
+  <view class="tit-panel">
+    <view class="tit">
+      <span class="bor"></span>{{tit}}
+    </view>
+    <navigator url="{{href}}" hover-class="navigator-hover" class="more" wx:if="{{showMore}}">
+      <i class="iconfont icon-morevert"></i>
+    </navigator>
+  </view>
+</template>

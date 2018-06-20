@@ -1,0 +1,11 @@
+<!--pages/houseNews/houseNews.wxml-->
+<view class="house-news-warp">
+  <scroll-view scroll-y class="news-list" style="height: {{houseNewsHeight}}px" bindscrolltolower="getHouseNews">
+    <view class="news-item" wx:for="{{houseNews}}">
+      <view class="news-time">{{item.addtime}}</view>
+      <textShowAll content="{{item.con}}"></textShowAll>
+    </view>
+    <!-- <view class="loading" hidden="{{!loading}}">正在载入更多...</view>  
+    <view class="loading complete" hidden="{{!allLoaded}}">没有更多数据了~</view> -->
+  </scroll-view>
+</view>

@@ -1,0 +1,543 @@
+
+page{
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.house-warp .search-panel {
+  background: #FFF;
+  padding-top: 16rpx;
+  padding-bottom: 16rpx;
+  /*position:fixed;*/
+  /*z-index:999;*/
+  width: 100%;
+  max-width: 750px;
+  position: relative;
+  z-index: 3000;
+  /*border-bot    tom:1px solid #EDEDED*/
+}
+.house-warp .geosearch-header {
+  border: 1rpx solid #e5e5e5;
+  border-radius: 10rpx;
+  display: flex;
+  height: 70rpx;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  padding-right: 27rpx;
+  /*text-align:center;*/
+  background: #ebebeb;
+  padding-left: 20rpx;
+}
+.house-warp .geosearch-header .geosearch-header-input {
+  display: block;
+  background: transparent;
+  font-size: 32rpx;
+  width: 100%;
+  color: #999999;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+.house-warp .geosearch-header .geosearch-header-input icon{
+  position: absolute;
+  height: 40rpx;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.search-prompt{
+  padding-left: 54rpx;
+}
+.house-warp .geosearch-header img {
+  width: 40rpx;
+  height: 40rpx;
+  padding-right: 20rpx;
+  vertical-align: middle;
+}
+.house-warp .tab-bar {
+  position: relative;
+  background: #ffffff;
+  box-shadow: 0px 4rpx 10rpx #e5e5e5;
+  z-index: 3000;
+}
+.house-warp .tab-bar .filter {
+  display: flex;
+  padding: 24rpx 0 20rpx 0;
+}
+.house-warp .tab-bar .filter .filter-item {
+  flex: 1;
+  text-align: center;
+  border-right: 1rpx solid #e5e5e5;
+  position: relative;
+}
+.house-warp .tab-bar .filter .filter-item .arrow {
+  width: 0;
+  height: 0;
+  border-style: dashed dashed solid;
+  border-width: 10rpx;
+  border-color: #999999 transparent transparent;
+  margin-top: 5rpx;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); 
+  /* display: table-cell;
+  vertical-align: middle; */
+}
+.house-warp .tab-bar .filter .filter-item .filter-item-text {
+  margin-left: -16rpx;
+}
+.house-warp .tab-bar .filter .filter-item:last-child {
+  border-right: 0;
+}
+.house-warp .tab-bar .selected-warp{
+    padding: 0rpx 40rpx 0rpx 40rpx; 
+}
+.house-warp .tab-bar .selected-panel {
+  border-top: 1px solid #e5e5e5;
+  white-space: nowrap;
+  font-size: 0;
+  height: 98rpx;
+  overflow: hidden;
+}
+.house-warp .tab-bar .selected-panel .tag {
+  display: inline-block;
+  padding: 10rpx 60rpx 10rpx 35rpx;
+  font-size: 28rpx;
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+  border-radius: 60rpx;
+  border: 1rpx solid #e5e5e5;
+  position: relative;
+}
+.house-warp .tab-bar .selected-panel .tag .close {
+  border-radius: 50%;
+  background: #e5e5e5;
+  font-size: 24rpx;
+  height: 35rpx;
+  width: 35rpx;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  position: absolute;
+  top: 50%;
+  right: 6%;
+  transform: translateY(-50%);
+  margin-left: 10rpx;
+}
+.house-warp .tab-bar .selected-panel .tag .close i {
+  font-size: 24rpx;
+  color: #ffffff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.house-warp .house-list {
+  background: #ffffff;
+}
+.house-warp .house-list .house-item {
+  padding: 40rpx 40rpx;
+  border-bottom: 1px solid #e5e5e5;
+  display: flex;
+}
+.house-warp .house-list .house-item .img-panel {
+  height: 170rpx;
+  width: 200rpx;
+}
+.house-warp .house-list .house-item .img-panel image {
+  max-height: 100%;
+  max-width: 100%;
+}
+.house-warp .house-list .house-item .right-panel {
+  flex: 1;
+  margin-left: 20rpx;
+}
+.house-warp .house-list .house-item .right-panel .right-top {
+  height: 85rpx;
+  display: block;
+}
+.house-warp .house-list .house-item .right-panel .right-top .house-name {
+  display: flex;
+}
+.house-warp .house-list .house-item .right-panel .right-top .house-name p {
+  line-height: 1.5;
+  flex: 1;
+}
+.house-warp .house-list .house-item .right-panel .right-top .house-name .name {
+  font-size: 32rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 70%;
+}
+.house-warp .house-list .house-item .right-panel .right-top .house-name .area {
+  font-size: 28rpx;
+  color: #999999;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 30%;
+  text-align: right;
+}
+.house-warp .house-list .house-item .right-panel .right-top .sale-info {
+  display: flex;
+}
+.house-warp .house-list .house-item .right-panel .right-top .sale-info .status {
+  flex: 1;
+  font-size: 28rpx;
+  color: #999999;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+.house-warp .house-list .house-item .right-panel .right-top .sale-info .statusVal {
+  flex: 1;
+  font-size: 32rpx;
+  color: #ff6600;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: right;
+}
+.house-warp .house-list .house-item .right-panel .right-bottom {
+  font-size: 28rpx;
+  color: #999999;
+  display: table-cell;
+  vertical-align: bottom;
+  height: 85rpx;
+}
+.house-warp .house-list .house-item .right-panel .right-bottom p {
+  line-height: 1.5;
+}
+.house-warp .house-list .house-item .right-panel .right-bottom .huodong {
+  background: #e5e5e5;
+  padding: 0 10rpx;
+}
+.house-warp .filter-popup {
+  width: 100%;
+  /*max-height: 80%;*/
+  /*overflow: hidden;*/
+  border-radius: 0;
+}
+.house-warp .filter-popup .area-panel {
+  /*max-height: 100%;*/
+}
+.house-warp .filter-popup .area-panel .level-panel {
+  display: flex;
+  max-height: 520rpx;
+  overflow: hidden;
+}
+.house-warp .filter-popup .area-panel .level-panel .level1 {
+  flex: 2;
+  background: #f2f2f2;
+  max-height: 40%;
+  overflow: auto;
+}
+.house-warp .filter-popup .area-panel .level-panel .level2 {
+  flex: 3;
+  overflow: auto;
+}
+.house-warp .filter-popup .area-panel .level-li {
+  text-align: center;
+  line-height: 100rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.house-warp .filter-popup .area-panel .active {
+  color: #ffffff;
+  background: #ff6600;
+}
+.house-warp .filter-popup .area-panel .bottom-panel {
+  display: flex;
+  padding: .5rem 0;
+}
+.house-warp .filter-popup .area-panel .bottom-panel .btn-panel {
+  flex: 2;
+  text-align: center;
+}
+.house-warp .filter-popup .area-panel .bottom-panel .btn-panel button {
+  height: 60rpx;
+  background: transparent;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+}
+.house-warp .filter-popup .area-panel .bottom-panel .btn-panel .comfirm {
+  background: #ff6600;
+  color: #ffffff;
+}
+.house-warp .filter-popup .area-panel .bottom-panel .btn-panel input {
+  width: 144rpx;
+  font-size: 28rpx;
+  text-align: center;
+  outline: none;
+  height: 48rpx;
+  border: 0;
+  border: 1rpx solid #e5e5e5;
+  border-radius: 10rpx;
+}
+.house-warp .filter-popup .area-panel .bottom-panel .price-panel {
+  flex: 3;
+}
+.house-warp .filter-popup .area-panel .more-panel {
+  padding: 20rpx 40rpx;
+  font-size: 0;
+  /* border-bottom: 1px solid #e5e5e5; */
+}
+.house-warp .filter-popup .area-panel .more-panel .more-item {
+  padding-top: 20rpx;
+  font-size: 0;
+}
+.house-warp .filter-popup .area-panel .more-panel .more-p {
+  font-size: 32rpx;
+  padding-bottom: 20rpx;
+}
+.house-warp .filter-popup .area-panel .more-panel .active {
+  background: #eee;
+}
+.house-warp .hidden {
+  display: none;
+}
+.house-warp .top-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 3000;
+}
+
+.icon-close:after{
+  font-family: "iconfont";
+  content: "\e613";
+  font-size: 30rpx;
+}
+
+.area-panel {
+  /*max-height: 100%;*/
+}
+.area-panel .level-panel {
+  display: flex;
+  max-height: 520rpx;
+  overflow: hidden;
+}
+
+.area-panel .level-panel .level1 {
+  flex: 2;
+  background: #f2f2f2;
+  max-height: 50%;
+  overflow: auto;
+}
+.area-panel .level-panel .level2 {
+  flex: 3;
+  overflow: auto;
+}
+.area-panel .level-li {
+  text-align: center;
+  line-height: 100rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.area-panel .active {
+  color: #ffffff;
+  background: #ff6600;
+}
+.area-panel .bottom-panel {
+  display: flex;
+  padding: 20rpx 0;
+}
+.area-panel .bottom-panel .price-panel {
+  flex: 3;
+}
+.area-panel .more-panel {
+  padding: 20rpx 40rpx;
+  font-size: 28rpx;
+  /* border-bottom: 1rpx solid #e5e5e5; */
+}
+.area-panel .more-panel .more-item {
+  padding-top: 20rpx;
+}
+.footer{
+  width: 100%;
+  display: flex;
+  padding: 30rpx 0;
+  border-top: 1px solid #e5e5e5;
+  text-align: center;
+}
+
+.confirm-btn{
+  background: #ff6600;
+  border: 1rpx sloid #ff6600;
+  color: #fff;
+  display: table-cell;
+  vertical-align: middle;
+  line-height: 1 !important;
+  padding: 20rpx 60rpx !important;
+}
+.empty-btn{
+  border: 1rpx solid #e5e5e5;
+  color: #333333;
+  background: #fff;
+  display: table-cell;
+  vertical-align: middle;
+  line-height: 1 !important;
+  padding: 20rpx 60rpx !important;
+}
+
+#totalPrice .footer .price-panel{
+  flex: 2;
+  display: table-cell;
+  margin: auto;
+}
+#totalPrice .footer .btn-panel{
+  flex: 1;
+}
+#totalPrice .footer .price-panel input{
+  width: 160rpx;
+  display: inline-block;
+  font-size: 28rpx;
+  border: 1rpx solid #e5e5e5;
+  border-radius: 10rpx;
+  vertical-align: middle;
+}
+
+
+#more .area-panel .more-panel {
+  padding: 20rpx 40rpx;
+  font-size: 0;
+   width: 100%;
+}
+#more .area-panel .more-panel .more-item {
+  padding-top: 20rpx;
+  font-size: 0;
+}
+#more .area-panel .more-panel .more-p {
+  font-size: 32rpx;
+  padding-bottom: 20rpx;
+}
+#more .area-panel .more-panel .label {
+  font-size: 14px;
+  color: #6c6c6c;
+  padding: 0 20rpx;
+  border-radius: 80rpx;
+  margin-right: 20rpx;
+  word-break: break-all;
+  margin-bottom: 12rpx;
+  line-height: 28px;
+  display: inline-block;
+  /* display: table-cell;
+  vertical-align: middle; */ 
+}
+#more .area-panel .more-panel .active {
+  background: #e5e5e5;
+} 
+
+.house-list {
+  background: #ffffff;
+}
+.house-list .house-item {
+  padding: 20rpx 40rpx;
+  border-bottom: 1px solid #999999;
+  display: flex;
+}
+.house-list .house-item .img-panel {
+  height: 170rpx;
+  width: 200rpx;
+}
+.house-list .house-item .img-panel image {
+  max-height: 100%;
+  max-width: 100%;
+}
+.house-list .house-item .right-panel {
+  flex: 1;
+  margin-left: 20rpx;
+}
+.house-list .house-item .right-panel .right-top {
+  display: flex;
+  height: 85rpx;
+}
+.house-list .house-item .right-panel .right-top .house-name {
+  flex: 1;
+}
+.house-list .house-item .right-panel .right-top .house-name p {
+  line-height: 1.5;
+}
+.house-list .house-item .right-panel .right-top .house-name .name {
+  font-size: 36rpx;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.house-list .house-item .right-panel .right-top .house-name .area {
+  font-size: 28rpx;
+  color: #999999;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.house-list .label {
+  display: inline-block;
+  padding: 4rpx 10rpx;
+  color: #fff;
+  font-size: 24rpx;
+  line-height: 1;
+}
+.zaishou{
+  background: #f07300;
+}
+.yushou{
+  background: #ffaf00;
+}
+.shouqing{
+  background: #ffd436;
+}
+.house-list .house-item .right-panel .right-top .sale-info {
+  flex: 1;
+  text-align: right;
+}
+.house-list .house-item .right-panel .right-top .sale-info .status {
+  font-size: 28rpx;
+  color: #999999;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.house-list .house-item .right-panel .right-top .sale-info .statusVal {
+  font-size: 32rpx;
+  color: #999999;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.house-list .house-item .right-panel .right-bottom {
+  font-size: 28rpx;
+  color: #999999;
+  height: 85rpx;
+  display: table-cell;
+  vertical-align: bottom;
+}
+.house-list .house-item .right-panel .right-bottom p {
+  line-height: 1.5;
+}
+.house-list .house-item .right-panel .right-bottom .huodong {
+  background: #999999;
+  padding: 0 8rpx;
+}
+
+.loading {
+  font-size: 28rpx;
+  text-align: center;
+  color: #999;
+  line-height: 2;
+}
+
+button::after{
+  border: none;
+}
+
+.mode-btn{
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 24rpx;
+  background: #ff6600;
+  color: #fff;
+  border-radius: 6rpx;
+}
+
+.house-warp .level-li:last-child {
+  border-bottom: none;
+}

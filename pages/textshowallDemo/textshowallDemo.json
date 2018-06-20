@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "textShowAll": "/components/TextShowAll/textShowAll"
+  }
+}

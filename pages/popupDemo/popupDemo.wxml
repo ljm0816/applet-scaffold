@@ -1,0 +1,64 @@
+  <view class="house-warp">
+    <view class="top-part" id="top-part">
+      <view class="search-panel">
+        <view class="geosearch-header">
+          <navigator url="/pages/houseSearch/houseSearch" hover-class="navigator-hover" class="geosearch-header-input">
+            <icon type="search" size="16"/>
+            <view class="search-prompt">搜索楼盘</view>
+          </navigator>
+        </view>
+      </view>
+      <view class="tab-bar">
+        <view class="filter">
+          <view class="filter-item" bindtap="showArea" data-status="open">
+          <view class="filter-item-text">
+            <text decode="{{true}}">区域&nbsp;</text>
+            <i class="arrow"></i>
+            </view>
+          </view>
+          <view class="filter-item" data-status="open">
+            <view class="filter-item-text">
+              <text decode="{{true}}">总价&nbsp;</text>
+              <i class="arrow"></i>
+            </view>
+          </view>
+          <view class="filter-item" data-status="open">
+            <view class="filter-item-text">
+              <text decode="{{true}}">户型&nbsp;</text>
+              <i class="arrow"></i>
+            </view>
+          </view>
+          <view class="filter-item" data-status="open">
+            <view class="filter-item-text">
+              <text decode="{{true}}">更多&nbsp;</text>
+              <i class="arrow"></i>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+ 
+    <!-- 区域 -->
+    <popup id="area" padding-top="{{topHeight}}" bind:cancelEvent="handleScroll" bind:confirmEvent="closePopup">
+      <view class="content">
+        <view class="area-panel">
+          <view class="level-panel">
+            <view class="level1">
+              <view class="level-li active">区域</view>
+            </view>
+            <view class="level2">
+              <!-- <view class="level-li">不限</view> -->
+              <view class="level-li {{tempParams.area.post_value == item.post_value ? 'active' : ''}}" wx:for="{{filterObj.area}}" wx:key="{{item.id}}" data-area="{{item}}" bindtap="selectArea">{{item.show_value}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="footer">
+        <button size="mini" class="empty-btn" bindtap="emptyArea" data-status="close">取消</button>
+        <button size="mini" class="confirm-btn" bindtap="confirmArea" data-status="close">确定</button>
+      </view>
+    </popup>
+  </view>
+
+
+

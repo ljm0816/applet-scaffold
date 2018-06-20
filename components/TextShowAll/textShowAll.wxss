@@ -1,0 +1,24 @@
+/* components/TextShowAll/textShowAll.wxss */
+.text-container{
+    font-size: 28rpx;
+}
+.text-container .text-btn{
+  color: #175199;
+}
+.text-container .content {
+  line-height: 40rpx;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break:break-all;
+}
+.shouqi{
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical; 
+}
+.maxHeight{
+  max-height: 125rpx;
+  overflow: hidden;
+}

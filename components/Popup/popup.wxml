@@ -1,0 +1,6 @@
+<!--component/popup/popup.wxml-->
+<view class="popup" style="padding-top: {{paddingTop}}px;" animation="{{animationData}}" wx:if="{{isShow}}">
+  <slot></slot>
+</view>
+<view class="pupup-modal" wx:if="{{isShow}}"></view>
+

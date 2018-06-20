@@ -1,0 +1,7 @@
+<!--components/TextShowAll/textShowAll.wxml-->
+<view class="text-container">
+  <view class="content-parant" style='max-height: {{contentParentH}}rpx; overflow: {{overflow}}' id="content-parant">
+    <view class="content {{!isShowAll ? 'shouqi' : ''}}" id="content">{{content}}</view>
+  </view>
+  <view class="text-btn" bindtap='showAll' wx:if="{{showHandleBtn}}">{{btnText}}</view>
+</view>
