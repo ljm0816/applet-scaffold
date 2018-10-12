@@ -1,0 +1,18 @@
+<!--pages/UI/UI.wxml-->
+<view class="new-list">
+  <view class="pont-panel">
+    <view class="pont-item">
+      <view class="arrow"><image src="https://fcpdlpk.oss-cn-shenzhen.aliyuncs.com/apps/applet-media/arrow.png" style='width: 17rpx;height: 23rpx;'></image></view>
+      <text>4A级的营销策划，为地产商提供项目策划、影视创意、互动营销为一体的全案定制</text>
+    </view>
+    <view class="pont-item">
+      <view class="arrow"><image src="https://fcpdlpk.oss-cn-shenzhen.aliyuncs.com/apps/applet-media/arrow.png" style='width: 17rpx;height: 23rpx;'></image></view>
+      <text>顶级的资源拓展，为客户深度定制拓展方案，跨界资源整合，撬动目标客群到达项目</text>
+    </view>
+    <view class="pont-item">
+    <view class="arrow"><image src="https://fcpdlpk.oss-cn-shenzhen.aliyuncs.com/apps/applet-media/arrow.png" style='width: 17rpx;height: 23rpx;'></image></view>
+    <text>实力级的电商执行，全年近400场活动执行，丰富操控经验，赢得客户一致认可</text>
+    </view>
+  </view>
+</view>
+

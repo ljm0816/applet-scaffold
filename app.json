@@ -3,12 +3,13 @@
     "pages/index/index",
     "pages/popupDemo/popupDemo",
     "pages/textshowallDemo/textshowallDemo",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/UI/UI"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "广佛新房",
+    "navigationBarTitleText": "小程序脚手架",
     "navigationBarTextStyle": "black"
   }
 }
