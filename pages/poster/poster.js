@@ -1,5 +1,8 @@
 // pages/poster/poster.js
-// 生成海报的
+// 生成海报的流程：
+// 1) 首先确定需要绘制canvas的图片下载完成，wx.downloadFile
+// 2) 设置canvas的width和height(就是屏幕的宽高), 开始绘制canvas
+// 3) 
 Page({
 
   /**
