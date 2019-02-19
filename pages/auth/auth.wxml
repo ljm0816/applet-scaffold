@@ -1,0 +1,10 @@
+<!--pages/auth/auth.wxml-->
+<!-- 授权 -->
+<view class="auth-warp">
+  <view class="auth-img">
+  <image src="../../assets/img/weChat.png" style="width: 240rpx;height: 240rpx;"></image>
+  </view>
+  <view class="auth-tit">申请以下权限</view>
+  <view class="auth-des">获得你的公开信息（昵称、头像等）</view>
+  <button class="auth-btn" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+</view>

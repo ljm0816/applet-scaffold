@@ -1,0 +1,16 @@
+<!--pages/login/login.wxml-->
+<view class="login-warp">
+  <form bindsubmit="formSubmit" class="login-form">
+    <view class="input-list">
+      <view class="input-item"><input type="number" name="mobile" placeholder="请输入手机号" bindinput='bindKeyInput'/></view>
+      <view class="input-item">
+        <input type="number" name="verifyCode" placeholder="请输入验证码"/>
+        <!-- <button disabled="{{codeBtnDisable}}" size="mini" bindtap="getCode" class="code-btn"> {{codeBtnName}} </button> -->
+        <view class="code-btn" bindtap='getCode'>{{codeBtnName}}</view>
+      </view>
+    </view>
+    <view class="btn-panel">
+      <button formType="submit">登录</button>
+    </view>
+  </form>
+</view>

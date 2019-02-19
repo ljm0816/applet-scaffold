@@ -1,5 +1,5 @@
-var base = 'https://m.gdfangpin.com'
-// var base = 'http://test.kanlouyi.com'
+// var base = 'https://m.gdfangpin.com'
+var base = 'http://test.gdfangpin.com'
 module.exports = {
   houseList: base + '/weixin/house/index', // 新房列表
   lpnews: base + '/weixin/house/lpnews', // 楼盘动态

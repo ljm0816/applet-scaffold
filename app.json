@@ -4,7 +4,10 @@
     "pages/popupDemo/popupDemo",
     "pages/textshowallDemo/textshowallDemo",
     "pages/logs/logs",
-    "pages/UI/UI"
+    "pages/UI/UI",
+    "pages/auth/auth",
+    "pages/login/login",
+    "pages/poster/poster"
   ],
   "window": {
     "backgroundTextStyle": "light",

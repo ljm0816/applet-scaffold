@@ -1,0 +1,18 @@
+
+<button bindtap="makePoster">生成海报</button>
+<view class="canvas-box" id="canvas-box" hidden='{{!showCanvas}}'>
+    <view class="canvas-content">
+    <view class="close"><image src='/assets/img/close.png' style="width: 60rpx; height: 60rpx;" bindtap='closeCanvasModal'></image></view>
+      <view class="canvasimg-panel">
+        <image src="{{canvasImage}}" wx:if="{{canvasImage}}" mode='widthFix' class="canvasimg" style='width: 100%;'></image>
+      </view>
+      <view class="btn-panel">
+        <view class="save-btn" bindtap='saveCanvasImg'>保存图片</view>
+      </view> 
+    </view>
+  </view>
+  <view class='canvas-mask' hidden='{{!showCanvas}}'></view>
+
+  <canvas style="position:fixed;top:999px;height:{{canvasHeight}}px;width:{{canvasWidth}}px;" canvas-id="postercanvas" disable-scroll="{{true}}"/>
+
+  <!-- <canvas style="position:fixed;top:0px;height:{{canvasHeight*2}}px;width:{{canvasWidth*2}}px;transform: scale(0.5, 0.5)" canvas-id="postercanvas2" disable-scroll="{{true}}"/> -->
