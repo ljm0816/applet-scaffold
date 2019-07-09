@@ -37,19 +37,23 @@ Component({
 
     showPopup(e) {
       var currentStatus = e.currentTarget.dataset.status;
+      //如果已经是打开的状态了，就不需要在执行下面的代码
+      if (currentStatus == "open" && this.data.isShow) {
+        return;
+      }
       var animation = wx.createAnimation({
         duration: 200,
         timingFunction: "linear",
         delay: 0
-      })
+      });
 
-      this.animation = animation
+      this.animation = animation;
 
-      animation.translateY(-300).step()
+      animation.translateY(-300).step();
 
       this.setData({
         animationData: animation.export()
-      })
+      });
 
       setTimeout(function () {
         // 执行第二组动画：Y轴不偏移，停  
@@ -60,23 +64,19 @@ Component({
         })
         //关闭抽屉  
         if (currentStatus == "close") {
-          this.setData(
-            {
+          this.setData({
               isShow: false,
               isScroll: true
-            }
-          );
+            });
         }
       }.bind(this), 200)
 
       // 显示抽屉  
       if (currentStatus == "open") {
-        this.setData(
-          {
-            isShow: true,
-            isScroll: false
-          }
-        );
+        this.setData({
+          isShow: true,
+          isScroll: false
+        });
       }
     },
     move: function () {

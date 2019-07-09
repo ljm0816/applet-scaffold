@@ -125,6 +125,9 @@ Page({
     })
   },
 
+/**
+ * 获取页面高度
+ */
   getWindowHeight: function () {
     let that = this
     // 获取系统信息
@@ -217,7 +220,7 @@ Page({
       })
     }
     this.resetFiexd()
-    this.getHouseList(true)
+    //this.getHouseList(true)
   },
 
   /**
@@ -315,7 +318,7 @@ Page({
       isScroll: true
     })
     this.resetFiexd()
-    this.getHouseList(true)
+    //this.getHouseList(true)
   },
 
   /**

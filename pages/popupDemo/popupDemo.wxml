@@ -39,7 +39,7 @@
     </view>
  
     <!-- 区域 -->
-    <popup id="area" padding-top="{{topHeight}}" bind:cancelEvent="handleScroll" bind:confirmEvent="closePopup">
+    <popup id="area" padding-top="{{topHeight}}">
       <view class="content">
         <view class="area-panel">
           <view class="level-panel">

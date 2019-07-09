@@ -1,0 +1,47 @@
+/**
+ * 格式化时间日期
+ */
+var formatTime = function (date, format = 'YYYY-MM-DD') {
+  var nd = getDate(date * 1000);
+  var y = nd.getFullYear();
+  var m = nd.getMonth() + 1;
+  var d = nd.getDate();
+  var h = nd.getHours();
+  var mi = nd.getMinutes();
+  var s = nd.getSeconds();
+  if (m < 10) {
+    m = '0' + m
+  }
+  if (d < 10) {
+    d = '0' + d
+  }
+  if (h < 10) {
+    h = '0' + h
+  }
+  if (mi < 10) {
+    mi = '0' + mi
+  }
+  if (s < 10) {
+    s = '0' + s
+  }
+  var newDate = ''
+  if (date) {
+    switch (format) {
+      case 'YYYY-MM-DD':
+        newDate = [y, m, d].join('-');
+        break;
+      case 'HH:mm':
+        newDate = [h, mi].join(':');
+        break;
+      case 'MMMDo':
+        newDate = (nd.getMonth() + 1) + '月' + nd.getDate() + '日'
+        break;
+      default:
+        newDate = [y, m, d].join('-');
+    }
+  }
+  return newDate
+}
+module.exports = {
+  formatTime: formatTime
+}
