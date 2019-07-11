@@ -354,18 +354,27 @@ Page({
    */
   saveCanvasImg() {
     let that = this
-    wx.saveImageToPhotosAlbum({
-      filePath: that.data.canvasImage,
+    // 判断用户是否开启了保存图片权限：否，引导用户开启权限；是，保存图片
+    // 小程序没有请求过相册权限 res.authSetting['scope.writePhotosAlbum'] === undefined
+    // 小程序请求过相册权限，但用户拒绝了 res.authSetting['scope.writePhotosAlbum'] === false
+    // 因为通过wx.openSetting打开设置界面，只会出现小程序已经向用户请求过的权限，所以必要时要注意区分undefined和false
+    wx.getSetting({
       success(res) {
-        wx.showToast({
-          title: '图片已保存',
-        })
-      },
-      fail: function (res) {
-        wx.showToast({
-          title: res.errMsg,
-          icon: 'none'
-        })
+        if (res.authSetting['scope.writePhotosAlbum'] === true || res.authSetting['scope.writePhotosAlbum'] === undefined) {
+          wx.saveImageToPhotosAlbum({
+            filePath: that.data.currentCanvasImage,
+            success(res) {
+              wx.showToast({
+                title: '图片已保存',
+              })
+            }
+          })
+        } else {
+          wx.openSetting({
+            success(res) { },
+            fail(error) { }
+          })
+        }
       }
     })
   },

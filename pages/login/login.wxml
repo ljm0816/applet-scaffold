@@ -1,16 +1,29 @@
-<!--pages/login/login.wxml-->
-<view class="login-warp">
-  <form bindsubmit="formSubmit" class="login-form">
-    <view class="input-list">
-      <view class="input-item"><input type="number" name="mobile" placeholder="请输入手机号" bindinput='bindKeyInput'/></view>
-      <view class="input-item">
-        <input type="number" name="verifyCode" placeholder="请输入验证码"/>
-        <!-- <button disabled="{{codeBtnDisable}}" size="mini" bindtap="getCode" class="code-btn"> {{codeBtnName}} </button> -->
-        <view class="code-btn" bindtap='getCode'>{{codeBtnName}}</view>
-      </view>
+<!-- <header title="登录"></header> -->
+<view class="auth-warp" style='margin-top:{{barHeight*2+20}}px'>
+  <form class="mobile-login" bindsubmit="formSubmit">
+    <view class="ml-tit">手机号登录</view>
+    <view class="field-item">
+      <view class="label">联系号码</view>
+      <view class="input-view"><input name="mobile" placeholder="请输入手机号码" bindinput="bindMobile"/></view>
     </view>
-    <view class="btn-panel">
-      <button formType="submit">登录</button>
+    <view class="field-item">
+      <view class="label">验证码</view>
+      <view class="input-view"><input name="verifyCode" placeholder="请输入验证码"/></view>
+      <view class="code" bindtap='getCode'>{{codeBtnName}}</view>
+    </view>
+    <view class="field-btn">
+      <button form-type="submit" class="submit-btn">绑定手机号</button>
     </view>
   </form>
+  <view class="wechat-login">
+    <view class="wc-tit">
+      <view class="tit">微信授权一键绑定手机号</view>
+      <view class="hr"></view>
+    </view>
+    <view class="wc-btn">
+      <button class="auth-btn" open-type="getPhoneNumber" bindgetphonenumber="bindGetUserPhone">
+        <image src='https://fcpdlpk.oss-cn-shenzhen.aliyuncs.com/apps/applet-wechat/wclogin.png'></image>
+      </button>
+    </view>
+  </view>
 </view>

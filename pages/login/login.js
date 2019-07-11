@@ -1,93 +1,68 @@
-const API = require('../../common/api')
+// pages/auth/auth.js
 const app = getApp()
-// pages/login/login.js
+const API = require('../../common/api')
+const http = require('../../common/http')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    params: {
-      mobile: '',
-      verifyCode: ''
-    },
+    fromUrl: '',
+    barHeight: app.globalData.barHeight,
     codeBtnName: '获取验证码',
     codeBtnDisable: false,
     codeMinutes: 60,
-    token: ''
+    mobile: '',
+    verifyCode: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      fromUrl: decodeURIComponent(options.fromUrl) || ''
+    })
+    console.log("this.data.fromUrl::", this.data.fromUrl)
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+ * 点击授权按钮
+ */
+  bindGetUserPhone: function (e) {
+    let userRes = e.detail
+    //用户按了允许授权按钮， 登录发送数据到后台
+    wx.login({
+      success: res => {
+        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        let params = {
+          code: res.code,
+          encryptedData: userRes.encryptedData,
+          iv: userRes.iv
+        }
+        this.auth(params)
+      }
+    })
   },
 
 /**
- * 登录
+ * 微信手机号一键登录
  */
-  formSubmit: function (e) {
-    console.log(e.detail)
-    this.setData({
-      params: e.detail.value
-    })
-    if (!this.check(true)) {
-      return
-    }
-    wx.getStorage({
-      key: 'token',
-      success: (res) => {
-        this.setData({
-          token: res.data
-        })
-        let url = API.login + '?token=' + this.data.token
-        wx.request({
-          url: url,
-          data: this.data.params,
-          method: 'POST',
-          header: {
-            'content-type': 'application/json' // 默认值
-          },
-          success: (res) => {
-            if (res.data.code == 200) {
-              wx.showToast({
-                title: res.data.data,
-                icon: 'none'
-              })
-              setTimeout(() => {
-                console.log('setTimeout')
-                wx.switchTab({ url: '/pages/index/index' })
-              }, 1500)
-            } else if (res.data.errcode === 2) {
-              wx.navigateTo({
-                url: '/pages/login/login',
-              })
-            } else if (res.data.errcode === 401) {
-              wx.showToast({
-                title: res.data.data,
-                icon: 'none'
-              })
-              setTimeout(() => {
-                wx.navigateTo({
-                  url: '/pages/auth/auth',
-                })
-              }, 1500)
-            } else {
-              wx.showToast({
-                title: res.data.data,
-                icon: 'none'
-              })
-            }
-          }
-        })
+  auth(params) {
+    http.wxRequest({
+      url: API.bindMobile,
+      params: params,
+      method: 'POST',
+      success: (data) => {
+        if (this.data.fromUrl === '/pages/user/user' || this.data.fromUrl === '/pages/experts/experts') {
+          wx.reLaunch({ url: this.data.fromUrl })
+        } else {
+          wx.redirectTo({ url: this.data.fromUrl })
+        }
+      },
+      fail: function (res) {
+        console.log('fail::', res)
       }
     })
   },
@@ -95,22 +70,37 @@ Page({
   /**
    * 获取验证码
    */
-  getCode: function() {
-    var that = this
-    if (!this.check(false)) {
-      return
+  getCode(e) {
+    //阻止事件冒泡
+    let mobile = this.data.mobile.trim()
+    if (!mobile) {
+      wx.showToast({
+        title: '您还没有填写手机号码',
+        icon: 'none'
+      })
+      return false
     }
-    var changeCodeTime = function() {
-      setTimeout(function() {
-        that.setData({
+    if (/^^(1)\d{10}$$/.test(mobile) === false) {
+      wx.showToast({
+        title: '手机号码格式错误',
+        icon: 'none'
+      })
+      return false
+    }
+    this.setData({
+      codeBtnDisable: true
+    })
+    let changeCodeTime = () => {
+      setTimeout(() => {
+        this.setData({
           codeBtnDisable: true,
-          codeMinutes: that.data.codeMinutes - 1,
-          codeBtnName: '已发送(' + that.data.codeMinutes + 's)'
+          codeMinutes: this.data.codeMinutes - 1,
+          codeBtnName: '已发送(' + this.data.codeMinutes + 's)'
         })
-        if (that.data.codeMinutes >= 1) {
+        if (this.data.codeMinutes >= 1) {
           changeCodeTime()
         } else {
-          that.setData({
+          this.setData({
             codeBtnDisable: false,
             codeMinutes: 60,
             codeBtnName: '重新发送'
@@ -118,57 +108,72 @@ Page({
         }
       }, 1000)
     }
-    wx.request({
-      url: API.code,
-      data: that.data.params,
+    http.wxRequest({
+      url: API.userGetCode,
+      params: { mobile: mobile },
       method: 'POST',
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success: (res) => {
-        if (res.data.code == 200) {
-          changeCodeTime()
-          wx.showToast({
-            title: res.data.data,
-            icon: 'none'
-          })
-        }
+      success: (data) => {
+        changeCodeTime()
       }
     })
   },
 
-  check: function (isVerifyCode) {
-    if (this.data.codeBtnDisable && !isVerifyCode) {
-      return
-    }
-    if (!this.data.params.mobile) {
+/**
+ * 绑定手机号
+ */
+  formSubmit: function (e) {
+    let mobile = e.detail.value.mobile.trim()
+    let verifyCode = e.detail.value.verifyCode.trim()
+    if (!mobile) {
       wx.showToast({
-        title: '手机号不能为空',
+        title: '您还没有填写手机号码',
         icon: 'none'
       })
       return false
     }
-    if (/^^((13[0-9])|(15[^4])|(18[0235-9])|(17[0-8])|(147))\d{8}$$/.test(this.data.params.mobile) === false) {
+    if (/^^(1)\d{10}$$/.test(mobile) === false) {
       wx.showToast({
         title: '手机号码格式错误',
         icon: 'none'
       })
       return false
     }
-    if (!this.data.params.verifyCode && isVerifyCode) {
+    if (!verifyCode) {
       wx.showToast({
-        title: '验证码不能为空',
+        title: '请先填写验证码',
         icon: 'none'
       })
       return false
     }
-    return true
-  },
-
-  bindKeyInput: function (e) {
-    this.setData({
-      ['params.mobile']: e.detail.value
+    http.wxRequest({
+      url: API.userUpdateMobile,
+      params: { mobile: mobile, verifyCode: verifyCode},
+      method: 'POST',
+      success: (data) => {
+        wx.showToast({
+          title: '授权成功',
+          icon: 'none'
+        })
+        setTimeout(() => {
+          if (this.data.fromUrl === '/pages/user/user') {
+            wx.reLaunch({ url: this.data.fromUrl })
+          } else {
+            wx.redirectTo({ url: this.data.fromUrl })
+          }
+        }, 1500)
+      }
     })
+  },
+  bindMobile: function (e) {
+    this.setData({
+      mobile: e.detail.value
+    })
+  },
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
   },
 
   /**

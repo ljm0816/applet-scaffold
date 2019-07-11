@@ -1,0 +1,16 @@
+<view class='nav-wrap' style='height: {{barHeight*2 + 20}}px;'>
+  <view class='nav-title' style='line-height: {{barHeight*2 + 44}}px;'>{{title}}</view>
+  <view style='display: flex; justify-content: space-around;flex-direction: column;'>
+    <view class='nav-capsule' style='height: {{barHeight*2 + 44}}px;'>
+      <view class="nav-list {{showHome ? 'navborder' : ''}}">
+        <navigator url="/pages/home/home" open-type="navigateBack" delta="{{1}}" class='head-icon' wx:if="{{!isShare && (currentPages > 1)}}">
+          <image src="/assets/img/back.png" style='width: 45rpx;height: 45rpx;'></image>
+        </navigator>
+        <view class='navbar-v-line' wx:if="{{currentPages > 1}}"></view>
+        <navigator url="/pages/home/home" open-type="switchTab" wx:if="{{showHome}}">
+          <image src="/assets/img/backhome.png" style='width: 45rpx;height: 45rpx;'></image>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>

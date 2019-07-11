@@ -1,32 +1,118 @@
-/* pages/login/login.wxss */
-.login-warp{
-  padding: 40rpx;
-}
-.input-list{
+/* pages/auth/auth.wxss */
+page{
   background: #fff;
-  border-radius: 10rpx;
-  margin-bottom: 30rpx;
 }
-.input-item:first-child{
-  border-bottom: 1rpx solid  rgba(242,242,242,1);
+.auth-warp{
+  padding: 40rpx 32rpx;
 }
-.input-item{
-  display: flex;
-}
-.code-btn{
-  line-height: 2.8rem;
+.auth-img{
+  margin: auto;
   text-align: center;
-  width: 250rpx;
-  color:rgba(104,190,141,1);
+  padding-bottom: 40rpx;
+  padding-top: 20rpx;
+  border-bottom:1rpx solid rgba(245,245,245,1);
+  }
+.auth-tit{
+  font-size: 36rpx;
+  padding-top: 60rpx;
+  }
+.auth-des{
+  font-size: 28rpx;
+  color: #9d9d9d;
+  padding-top: 20rpx;
 }
-
-.input-item input{
-  height: 2.8rem;
-  padding-left: 20rpx;
+.auth-btn{
+  width: 118rpx;
+  height: 118rpx;
+  border: none;
+  border-radius: 50%;
+  margin-top: 50rpx;
+  overflow: hidden;
+  padding: 0;
+}
+.auth-btn image{
+  width: 118rpx;
+  height: 118rpx;
+  border-radius: 50%;
+}
+.mobile-login{
+  
+}
+.mobile-login .ml-tit{
+  padding: 40rpx 0 22rpx 0;
+  font-size:40rpx;
+  font-weight:600;
+  color:#2c2c2c;
+}
+.mobile-login .field-item{
+  display: flex;
+  background: #F7F7F7;
+  border-radius:6rpx;
+  margin: 40rpx 0;
+  padding: 20rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+}
+.mobile-login .field-item .label{
+  display: inline-block;
+  width: 130rpx;
+  line-height: 1.4rem;
+  height: 1.4rem;
+}
+.mobile-login .field-item .code{
+  display: inline-block;
+  width: 200rpx;
+  line-height: 1.4rem;
+  height: 1.4rem;
+  text-align: right;
+  color: #576B95;
+}
+.mobile-login .field-item .input-view{
+  display: inline-block;
   flex: 1;
+  padding: 0 20rpx;
+  line-height: 1.4rem;
+  height: 1.4rem;
 }
-
-.btn-panel button{
-  background:rgba(253,154,4,1);
+.mobile-login .field-btn{
+  padding-top: 32rpx;
+}
+.mobile-login .submit-btn{
+  width:100%;
+  height:96rpx;
+  background:rgba(0,119,222,1);
+  border-radius:12rpx;
+  border: none;
   color: #fff;
 }
+
+.wechat-login{
+  padding-top: 100rpx;
+}
+.wechat-login .wc-tit{
+  height:28rpx;
+  font-size:28rpx;
+  position: relative;
+}
+.wechat-login .wc-tit .tit{
+  color: #2C2C2C;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  z-index: 2;
+  width: 360rpx;
+  text-align: center;
+}
+.wechat-login .wc-tit .hr{
+  width: 100%;
+  height: 2rpx;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #e5e5e5;
+}
+.wechat-login .wc-btn{}
+.wechat-login .auth-btn{}
