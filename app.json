@@ -3,7 +3,6 @@
     "pages/index/index",
     "pages/popupDemo/popupDemo",
     "pages/textshowallDemo/textshowallDemo",
-    "pages/logs/logs",
     "pages/UI/UI",
     "pages/auth/auth",
     "pages/login/login",
