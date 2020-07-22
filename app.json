@@ -14,5 +14,23 @@
     "navigationBarTitleText": "小程序脚手架",
     "navigationBarTextStyle": "black"
   },
+  "tabBar": {
+    "custom": true,
+    "selectedColor": "#0078D8",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "",
+        "selectedIconPath": "",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/poster/poster",
+        "iconPath": "",
+        "selectedIconPath": "",
+        "text": "生成海报"
+      }
+    ]
+  },
   "sitemapLocation": "sitemap.json"
 }
