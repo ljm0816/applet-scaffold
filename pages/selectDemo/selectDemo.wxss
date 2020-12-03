@@ -1,0 +1,5 @@
+/* pages/selectDemo/selectDemo.wxss */
+page{
+    background: #fff;
+    margin-top: 40rpx;
+}

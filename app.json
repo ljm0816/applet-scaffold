@@ -1,18 +1,19 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/popupDemo/popupDemo",
-    "pages/textshowallDemo/textshowallDemo",
-    "pages/UI/UI",
-    "pages/auth/auth",
-    "pages/login/login",
-    "pages/poster/poster"
-  ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "小程序脚手架",
-    "navigationBarTextStyle": "black"
-  },
-  "sitemapLocation": "sitemap.json"
+    "pages": [
+        "pages/index/index",
+        "pages/popupDemo/popupDemo",
+        "pages/textshowallDemo/textshowallDemo",
+        "pages/UI/UI",
+        "pages/auth/auth",
+        "pages/login/login",
+        "pages/poster/poster",
+        "pages/selectDemo/selectDemo"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "小程序脚手架",
+        "navigationBarTextStyle": "black"
+    },
+    "sitemapLocation": "sitemap.json"
 }

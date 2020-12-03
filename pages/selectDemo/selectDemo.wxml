@@ -1,0 +1,2 @@
+<!--pages/selectDemo/selectDemo.wxml-->
+<mini-select text="{{selected}}" style="transform: translateX(-70%);" selectList="{{sortList}}" bindselected="selected">{{selected}}</mini-select>

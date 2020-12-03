@@ -1,0 +1,55 @@
+.mini-select{
+    position: relative;
+}
+.select-label{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mini-select .arrow{
+    border-width: 30rpx;
+    border-color: transparent transparent #fd9a04;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fd9a04 ;
+}
+.mini-select image{
+    width: 30rpx;
+    height: 15rpx;
+    vertical-align: middle;
+    margin-right: 10rpx;
+}
+
+.mini-select .select-text{
+    font-size: 32rpx;
+    color: #13223F;
+    letter-spacing: 0;
+    text-align: right;
+}
+.select-list{
+    position: absolute;
+    z-index: 1000;
+    display: none;
+    background: #fff;
+    box-shadow: 0 0 21rpx 0 #EBEDF5;
+    border-radius: 13rpx;
+    width: 169rpx;
+    top: 60rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 18rpx 0;
+}
+.select-item{
+    line-height: 60rpx;
+    text-align: center;
+    font-size: 32rpx;
+    color: #13223F;
+}
+.active {
+    color: #007AFF  !important;
+}
+.visibility{
+    display: block  !important;
+}

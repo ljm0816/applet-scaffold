@@ -1,0 +1,11 @@
+<!--components/Select/Select.wxml-->
+<view class="mini-select">
+    <view class="select-label" bindtap="toggleSelect">
+        <image src="../../assets/img/arrow_active@2x.png" wx:if="{{active}}"></image>
+        <image src="../../assets/img/arrow@2x.png" wx:else></image>
+        <view class="select-text {{active ? 'active': '' }}">{{text}}</view>
+    </view>
+    <view class="select-list {{active ? 'visibility': '' }}" style="{{style}}">
+        <view class="select-item"   wx:for="{{selectList}}" wx:key="*this" bindtap="selected" data-value="{{item}}">{{item}}</view>
+    </view>
+</view>
