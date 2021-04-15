@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "nav-tab": "/components/Header/header"
+  },
+  "navigationStyle": "custom"
+}

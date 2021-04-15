@@ -1,0 +1,10 @@
+<!--pages/customNavigation/customNavigation.wxml-->
+<scroll-view bindscroll="getScrollInfo" scroll-y="true" class="customNav-warp">
+    <view class="top-panel" style="background: url(https://hd.mail.189.cn/huodong/all/mail-wxapp/head_bg.png) center no-repeat; background-size: 100% 100%; height: {{456 +navHeight * 2}}rpx">
+        <nav-tab id="nav-tab" title="189邮箱" hack="{{false}}" iconStyle="{{scrollTop > 20 ? 1 : 3}}"></nav-tab>
+    </view>
+
+    <view style="height: 800px;">
+        测试滚动
+    </view>
+</scroll-view>

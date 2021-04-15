@@ -1,16 +1,20 @@
-<view class='nav-wrap' style='height: {{barHeight*2 + 20}}px;'>
-  <view class='nav-title' style='line-height: {{barHeight*2 + 44}}px;'>{{title}}</view>
-  <view style='display: flex; justify-content: space-around;flex-direction: column;'>
-    <view class='nav-capsule' style='height: {{barHeight*2 + 44}}px;'>
-      <view class="nav-list {{showHome ? 'navborder' : ''}}">
-        <navigator url="/pages/home/home" open-type="navigateBack" delta="{{1}}" class='head-icon' wx:if="{{!isShare && (currentPages > 1)}}">
-          <image src="/assets/img/back.png" style='width: 45rpx;height: 45rpx;'></image>
-        </navigator>
-        <view class='navbar-v-line' wx:if="{{currentPages > 1}}"></view>
-        <navigator url="/pages/home/home" open-type="switchTab" wx:if="{{showHome}}">
-          <image src="/assets/img/backhome.png" style='width: 45rpx;height: 45rpx;'></image>
-        </navigator>
-      </view>
+<!--components/navTab/navTab.wxml-->
+<view style="position: relative;height:{{navHeight}}px;" wx:if="{{hack}}"></view>
+<view class="nav-tab {{iconStyle == 1 ? 'background1' : iconStyle == 2 ? 'background2' : 'background3'}}" style="height: {{navTitleHeight}}px;padding-top: {{navTop}}px;padding-bottom:{{navHeight - realNavHeight}}px;">
+    <view class="top-left" style="height: {{navTitleHeight}}px;">
+        <view class="navigation-panel {{back & home ? 'navigationBorder' : ''}}" style="height: {{navTitleHeight}}px;" wx:if="{{!customBackStyle}}">
+            <view class="navigation-item {{home ? 'dividingLine' : ''}}" wx:if="{{back}}" bindtap="goBack">
+                <image src="https://hd.mail.189.cn/huodong/all/mail-wxapp/back-icon@2x.png" wx:if="{{iconStyle == 1}}"></image>
+                <image src="https://hd.mail.189.cn/huodong/all/mail-wxapp/back-white-icon@2x.png" wx:else></image>
+            </view>
+            <view class="navigation-item" wx:if="{{home}}" bindtap="goHome">
+            <image src="https://hd.mail.189.cn/huodong/all/mail-wxapp/home-icon@2x.png" wx:if="{{iconStyle == 1}}"></image>
+                <image src="https://hd.mail.189.cn/huodong/all/mail-wxapp/home-white-icon@2x.png" wx:else></image>
+            </view>
+        </view>
+        <slot></slot>
     </view>
-  </view>
+    <view class="title-panel">
+        <view class="title {{ iconStyle === 1 ? 'title1' : 'title2'}}" style="line-height: {{navTitleHeight}}px;">{{title}}</view>
+    </view>
 </view>

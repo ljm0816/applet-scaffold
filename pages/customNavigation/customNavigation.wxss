@@ -1,0 +1,12 @@
+/* pages/customNavigation/customNavigation.wxss */
+
+page{
+    height: 100%;
+}
+.customNav-warp{
+    height: 100%;
+}
+.top-panel {
+    width: 100%;
+    height: 410rpx;
+}
