@@ -1,0 +1,68 @@
+<recycle-view batch="{{batchSetRecycleData}}" id="recycleSearchId{{folderId}}" class="attachment-list-warp" scroll-y="true" bindscrolltolower="loadMore">
+    <view slot="before">
+        <view class="search-panel" id="js-search-panel">
+            <view class="search">
+                <image src="../../assets/images/search@2x.png" bindtap="search"></image>
+                <input placeholder="搜索条件" value="{{keyWord}}" class="search-input"  focus="{{true}}" bindfocus="handleFocus" bindblur="handleBlur" bindinput="getKeyword" bindconfirm="search" confirm-type="search" >
+                    <view class="clear-panel" bindtap="clearInput" wx:if="{{showClear && keyWord}}"></view>
+                </input>
+            </view>
+            <navigator class="cancel" open-type="navigateBack">取消</navigator>
+            <!-- <view class="search-mode" wx:if="{{showClear}}"></view> -->
+        </view>
+    </view>
+
+    <!-- 搜索历史 -->
+    <view class="search-history" id="js-search-history" style="top:{{searchHistoryHeight}}px;" hidden="{{keyWord || historyList.length <= 0}}">
+            <view class="history-top">
+                <view class="tit">搜索历史</view>
+                <view class="delete" bindtap="deleteHistory"><image src="https://hd.mail.189.cn/huodong/all/mail-wxapp/del2-icon@2x.png" class="del-img"></image></view>
+            </view>
+            <view class="history-list {{(!isShowAll && parentHeight < contentHeight) ? 'parentHeight' : ''}}" id="history-list">
+                <view class="history-container">
+                    <!--  -->
+                    <view class="history-item" wx:for="{{historyList}}" wx:key="{{index}}" data-index="{{index}}" wx:if="{{breakpoint >= index}}" data-keyword="{{item}}" bindtap="historySearch">{{item}}</view>
+                    <view class="history-item more" wx:if="{{showHandleBtn && !isShowAll}}" bindtap="showMore">
+                        <image src="https://hd.mail.189.cn/huodong/all/mail-wxapp/history-more@2x.png" style="width: 24rpx;height: 24rpx;" mode="widthFix"></image>
+                    </view>
+                    <view class="history-item more" wx:if="{{showHandleBtn && isShowAll}}" bindtap="showMore">
+                        <image src="https://hd.mail.189.cn/huodong/all/mail-wxapp/history-more-up@2x.png" style="width: 24rpx;height: 24rpx;" mode="widthFix"></image>
+                    </view>
+                </view>
+                <view class="history-container opacity-container" id="container">
+                    <!-- wx:if="{{breakpoint >= index}} style="opacity: 0;""  -->
+                    <view class="history-item opacity-item" wx:for="{{historyList}}" wx:key="{{index}}" data-index="{{index}}" data-keyword="{{item}}">{{item}}</view>
+                    <view class="history-item opacity-item more" wx:if="{{showHandleBtn && !isShowAll}}">
+                        <image src="https://hd.mail.189.cn/huodong/all/mail-wxapp/history-more@2x.png" style="width: 24rpx;height: 24rpx;" mode="widthFix"></image>
+                    </view>
+                    <view class="history-item opacity-item more" wx:if="{{showHandleBtn && isShowAll}}">
+                        <image src="https://hd.mail.189.cn/huodong/all/mail-wxapp/history-more-up@2x.png" style="width: 24rpx;height: 24rpx;" mode="widthFix"></image>
+                    </view>
+                </view>
+            </view>
+        </view>
+    
+<!-- 搜索结果 hidden="{{!keyWord && focus}}" -->
+    <view class="result-panel" hidden="{{!keyWord && focus}}">
+        <view slot="before">
+            <view style="padding: 30rpx;  white-space: pre-wrap; font-size: 24rpx;">
+recycle-view的使用：
+1、npm install
+2、在小程序根目录下 安装插件 npm install --save miniprogram-recycle-view
+3、开发者工具 -> 工具 -> 构建npm
+            </view>
+        </view>
+
+        <view class="attachment-list">
+            <view class="no-more-data" wx:if="{{page >= totalPage && recycleList.length > 0 && loaded}}">没有更多数据了</view>
+            <view wx:if="{{!loaded}}" style="padding-top: 10rpx;">
+                <mp-loading type="circle"></mp-loading>
+            </view>
+        </view>
+
+        <view slot="after">
+            <view class="no-data" wx:if="{{recycleList.length <= 0 && loaded}}">没有符合条件的附件</view>
+            <!-- <mp-loading type="circle"  hidden="{{!keyWord && focus}}"></mp-loading> -->
+        </view>
+    </view>
+</recycle-view>

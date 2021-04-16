@@ -1,0 +1,163 @@
+/* pages/attachmentSearch/attachmentSearch.wxss */
+page{
+    min-height: 100%;
+    background: #ffffff;
+}
+.attachment-search-warp{
+    min-height: 100%;
+}
+.search-panel{
+    display: flex;
+    margin: 0 30rpx;
+    align-items: center;
+    padding: 24rpx 0;
+}
+.search{
+    flex: 1;
+    /* margin-right: 30rpx; */
+    background: #F5F5FA;
+    border-radius: 33rpx;
+    height: 66rpx;
+    font-size: 20rpx;
+    color: #B8BDC5;
+    display: flex;
+   align-items: center;
+   padding: 0 14rpx;
+   white-space: nowrap;
+   box-sizing: border-box;
+   position: relative;
+    /* background: url('../../assets/images/search@2x.png') center no-repeat ;
+    background-size: 100% auto; */
+}
+.cancel{
+    font-size: 30rpx;
+    color: #111E36;
+    margin-left: 36rpx;
+}
+
+.search .search-input{
+    flex: 1;
+    height: 66rpx;
+    font-size: 26rpx;
+    color: #111E36;
+    z-index: 0;
+    padding-right: 65rpx;
+}
+
+.search image{
+    width: 30rpx;
+    height: 30rpx;
+    vertical-align: middle;
+    margin-right: 8rpx;
+}
+.search .clear-panel{
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+     right: 14rpx;
+    height: 66rpx;
+    width: 66rpx;
+    background: url(https://hd.mail.189.cn/huodong/all/mail-wxapp/clear-icon@2x.png) right no-repeat;
+    background-size: 30rpx 30rpx;
+    /* padding-left: 50rpx; */
+    display: flex;
+    align-items: center;
+}
+.search-history{
+    position: fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    top: 119px;
+    padding: 23rpx 30rpx 0 30rpx;
+    background: #ffffff;
+    z-index: 100;
+}
+.history-container{
+    min-height: 1rpx;
+}
+.opacity-container{
+    background: #000;
+    opacity: 0;
+    position: absolute;
+    z-index: -100;
+    top: 0;
+    width: 100%;
+}
+.history-top{
+    display: flex;
+    align-items: center;
+    font-size: 26rpx;
+    color: #656F82;
+    text-align: left;
+}
+.history-top .tit{
+    flex: 1;
+}
+.history-top .del-img{
+    width: 26rpx;
+    height: 26rpx;
+    margin-left: 20rpx;
+}
+.history-list{
+    margin-top: 39rpx;
+    overflow: hidden;
+}
+.parentHeight{
+    height: 154rpx;
+}
+.history-list .history-item{
+    display: inline-block;
+    min-width: 133rpx;
+    line-height: 62rpx;
+    padding: 0 20rpx;
+    box-sizing: border-box;
+    background: #F6F7F9;
+    /* background-color: #656F82; */
+    border-radius: 36rpx;
+    margin-bottom: 20rpx;
+    margin-right: 14rpx;
+    text-align: center;
+    color: #111E36;
+    font-size: 26rpx;
+}
+.more{
+    height: 62rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-right: 0 !important;
+}
+
+.attachment-list{
+    margin-left: 30rpx;
+}
+.item-panel{
+    display: block;
+    /* margin-bottom: 20rpx;
+    margin-left: 10rpx;
+    margin-right: 10rpx; */
+}
+.no-data{
+    font-size: 32rpx;
+    color: #949BA8;
+    text-align: center;
+    line-height: 32rpx;
+    margin-top: 280rpx;
+}
+.no-more-data{
+    font-size: 24rpx;
+    color: #949BA8;
+    text-align: center;
+    line-height: 50rpx;
+    padding-top: 10rpx;
+}
+.select-view{
+    margin: 0 20px;
+    text-align: right;
+    justify-content: right;
+}
+.select-view .select{
+    display: inline-block;
+}

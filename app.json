@@ -8,7 +8,8 @@
         "pages/login/login",
         "pages/poster/poster",
         "pages/selectDemo/selectDemo",
-        "pages/customNavigation/customNavigation"
+        "pages/customNavigation/customNavigation",
+        "pages/search/search"
     ],
     "window": {
         "backgroundTextStyle": "light",

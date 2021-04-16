@@ -12,5 +12,6 @@
   </view>
   <view style='padding-top: 40rpx;'>
     <navigator url="/pages/poster/poster" class="navigator">生成海报</navigator>
+    <navigator url="/pages/search/search" class="navigator">搜索页（显示搜索历史、自动换行）</navigator>
   </view>
 </view>
